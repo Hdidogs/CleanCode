@@ -38,6 +38,21 @@ public class Hand {
         return false;
     }
 
+    public boolean hasCouleur() {
+        Map<CardType, Integer> possibilities = new HashMap<>();
+
+        for (Card card : getCards()) {
+            if (possibilities.containsKey(card.getType())) possibilities.put(card.getType(), possibilities.get(card.getType()) + 1);
+            else possibilities.put(card.getType(), 1);
+        }
+
+        for (Integer numberOf : possibilities.values()) {
+            if (numberOf >= 5) return true;
+        }
+
+        return false;
+    }
+
     public int getHigherValue() {
         int res = 0;
 

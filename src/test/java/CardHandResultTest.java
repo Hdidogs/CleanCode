@@ -28,4 +28,16 @@ public class CardHandResultTest {
         Hand hand = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE);
         assertEquals(true, hand.hasBrelan());
     }
+
+    @Test
+    public void shouldHaveCouleurFalse() {
+        Hand hand = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DIX_COUEUR).addCard(Cards.ROI_PIQUE).addCard(Cards.QUATTRE_TREFLE);
+        assertEquals(false, hand.hasCouleur());
+    }
+
+    @Test
+    public void shouldHaveCouleurTrue() {
+        Hand hand = new Hand().addCard(Cards.SEPT_PIQUE).addCard(Cards.AS_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE);
+        assertEquals(true, hand.hasCouleur());
+    }
 }
