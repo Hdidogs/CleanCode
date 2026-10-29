@@ -24,33 +24,11 @@ public class Hand {
     }
 
     public boolean hasBrelan() {
-        Map<Integer, Integer> possibilities = new HashMap<>();
-
-        for (Card card : getCards()) {
-            if (possibilities.containsKey(card.getValue())) possibilities.put(card.getValue(), possibilities.get(card.getValue()) + 1);
-            else possibilities.put(card.getValue(), 1);
-        }
-
-        for (Integer numberOf : possibilities.values()) {
-            if (numberOf >= 3) return true;
-        }
-
-        return false;
+        return hasNumberOfvalue(3);
     }
 
     public boolean hasCarre() {
-        Map<Integer, Integer> possibilities = new HashMap<>();
-
-        for (Card card : getCards()) {
-            if (possibilities.containsKey(card.getValue())) possibilities.put(card.getValue(), possibilities.get(card.getValue()) + 1);
-            else possibilities.put(card.getValue(), 1);
-        }
-
-        for (Integer numberOf : possibilities.values()) {
-            if (numberOf >= 4) return true;
-        }
-
-        return false;
+        return hasNumberOfvalue(4);
     }
 
     public boolean hasCouleur() {
@@ -76,5 +54,20 @@ public class Hand {
         }
 
         return res;
+    }
+
+    private boolean hasNumberOfvalue(int target) {
+        Map<Integer, Integer> possibilities = new HashMap<>();
+
+        for (Card card : getCards()) {
+            if (possibilities.containsKey(card.getValue())) possibilities.put(card.getValue(), possibilities.get(card.getValue()) + 1);
+            else possibilities.put(card.getValue(), 1);
+        }
+
+        for (Integer numberOf : possibilities.values()) {
+            if (numberOf >= target) return true;
+        }
+
+        return false;
     }
 }

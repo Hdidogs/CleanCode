@@ -44,12 +44,12 @@ public class CardHandResultTest {
     @Test
     public void shouldHaveCarreFalse() {
         Hand hand = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DIX_COUEUR).addCard(Cards.ROI_PIQUE).addCard(Cards.QUATTRE_TREFLE);
-        assertFalse(hand.hasCouleur());
+        assertFalse(hand.hasCarre());
     }
 
     @Test
     public void shouldHaveCarreTrue() {
         Hand hand = new Hand().addCard(Cards.SEPT_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE);
-        assertTrue(hand.hasCouleur());
+        assertTrue(hand.hasCarre());
     }
 }
