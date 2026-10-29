@@ -41,11 +41,12 @@ public class Hand {
         cardList.remove(cardList.getFirst());
 
         for (Card card : cardList) {
-            if (previousVal <= card.getValue()) return false;
-            if (previousVal++ != card.getValue()) return false;
+            if (previousVal >= card.getValue()) return false;
+            previousVal++;
+            if (previousVal != card.getValue()) return false;
         }
 
-        return false;
+        return true;
     }
 
     public boolean hasCouleur() {
