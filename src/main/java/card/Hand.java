@@ -49,6 +49,10 @@ public class Hand {
         return true;
     }
 
+    public boolean hasQuinteFlush() {
+        return false;
+    }
+
     public boolean hasCouleur() {
         Map<CardType, Integer> possibilities = new HashMap<>();
 

@@ -64,4 +64,16 @@ public class CardHandResultTest {
         Hand hand = new Hand().addCard(Cards.DEUX_CARRE).addCard(Cards.TROIS_PIQUE).addCard(Cards.CINQ_CARRE).addCard(Cards.QUATTRE_TREFLE).addCard(Cards.SIX_TREFLE);
         assertTrue(hand.hasSuite());
     }
+
+    @Test
+    public void shouldHaveQuinteFlushFalse() {
+        Hand hand = new Hand().addCard(Cards.DEUX_CARRE).addCard(Cards.TROIS_PIQUE).addCard(Cards.CINQ_CARRE).addCard(Cards.QUATTRE_TREFLE).addCard(Cards.SIX_TREFLE);
+        assertFalse(hand.hasQuinteFlush());
+    }
+
+    @Test
+    public void shouldHaveQuinteFlushTrue() {
+        Hand hand = new Hand().addCard(Cards.DEUX_CARRE).addCard(Cards.TROIS_CARRE).addCard(Cards.CINQ_CARRE).addCard(Cards.QUATTRE_CARRE).addCard(Cards.SIX_CARRE);
+        assertTrue(hand.hasQuinteFlush());
+    }
 }
