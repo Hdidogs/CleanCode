@@ -1,7 +1,9 @@
 package card;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Hand {
     public static final int INT_MAX_CARD_BY_HAND = 5;
@@ -22,6 +24,17 @@ public class Hand {
     }
 
     public boolean hasBrelan() {
+        Map<Integer, Integer> possibilities = new HashMap<>();
+
+        for (Card card : getCards()) {
+            if (possibilities.containsKey(card.getValue())) possibilities.put(card.getValue(), possibilities.get(card.getValue()) + 1);
+            else possibilities.put(card.getValue(), 1);
+        }
+
+        for (Integer numberOf : possibilities.values()) {
+            if (numberOf >= 3) return true;
+        }
+
         return false;
     }
 
