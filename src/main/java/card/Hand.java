@@ -26,12 +26,14 @@ public class Hand {
         cards.sort(Comparator.comparingInt(Card::getValue));
     }
 
+
+
     public boolean hasBrelan() {
-        return hasNumberOfvalue(3);
+        return hasNumberOfValue(3);
     }
 
     public boolean hasCarre() {
-        return hasNumberOfvalue(4);
+        return hasNumberOfValue(4);
     }
 
     public boolean hasSuite() {
@@ -54,7 +56,11 @@ public class Hand {
     }
 
     public boolean hasFull() {
-        return false;
+        Map<Integer, Integer> possibilities = getNumberOfValue();
+
+        if (possibilities.size() > 2) return false;
+
+        return true;
     }
 
     public boolean hasCouleur() {
@@ -82,7 +88,7 @@ public class Hand {
         return res;
     }
 
-    private boolean hasNumberOfvalue(int target) {
+    private boolean hasNumberOfValue(int target) {
         Map<Integer, Integer> possibilities = new HashMap<>();
 
         for (Card card : getCards()) {
@@ -95,5 +101,16 @@ public class Hand {
         }
 
         return false;
+    }
+
+    private Map<Integer, Integer> getNumberOfValue() {
+        Map<Integer, Integer> possibilities = new HashMap<>();
+
+        for (Card card : getCards()) {
+            if (possibilities.containsKey(card.getValue())) possibilities.put(card.getValue(), possibilities.get(card.getValue()) + 1);
+            else possibilities.put(card.getValue(), 1);
+        }
+
+        return possibilities;
     }
 }

@@ -80,12 +80,12 @@ public class CardHandResultTest {
     @Test
     public void shouldHaveFullFalse() {
         Hand hand = new Hand().addCard(Cards.DEUX_CARRE).addCard(Cards.TROIS_PIQUE).addCard(Cards.CINQ_CARRE).addCard(Cards.QUATTRE_TREFLE).addCard(Cards.SIX_TREFLE);
-        assertFalse(hand.hasCarre());
+        assertFalse(hand.hasFull());
     }
 
     @Test
     public void shouldHaveFullTrue() {
         Hand hand = new Hand().addCard(Cards.DEUX_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.QUATTRE_CARRE).addCard(Cards.QUATTRE_CARRE);
-        assertTrue(hand.hasCarre());
+        assertTrue(hand.hasFull());
     }
 }
