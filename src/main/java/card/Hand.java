@@ -53,6 +53,10 @@ public class Hand {
         return hasCouleur() && hasSuite();
     }
 
+    public boolean hasFull() {
+        return false;
+    }
+
     public boolean hasCouleur() {
         Map<CardType, Integer> possibilities = new HashMap<>();
 
