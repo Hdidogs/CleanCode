@@ -17,7 +17,13 @@ public class Hand {
     }
 
     public List<Card> getCards() {
+        sort();
+
         return cards;
+    }
+
+    private void sort() {
+        cards.sort(Comparator.comparingInt(Card::getValue));
     }
 
     public boolean hasBrelan() {
@@ -29,6 +35,16 @@ public class Hand {
     }
 
     public boolean hasSuite() {
+        List<Card> cardList = getCards();
+
+        int previousVal = cardList.getFirst().getValue();
+        cardList.remove(cardList.getFirst());
+
+        for (Card card : cardList) {
+            if (previousVal <= card.getValue()) return false;
+            if (previousVal++ != card.getValue()) return false;
+        }
+
         return false;
     }
 
