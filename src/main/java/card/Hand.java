@@ -21,6 +21,10 @@ public class Hand {
         return cards;
     }
 
+    public boolean hasBrelan() {
+        return false;
+    }
+
     public int getHigherValue() {
         int res = 0;
 
