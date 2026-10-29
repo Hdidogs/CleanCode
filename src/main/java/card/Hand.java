@@ -26,7 +26,16 @@ public class Hand {
         cards.sort(Comparator.comparingInt(Card::getValue));
     }
 
+    public int getPoints() {
+        if (hasQuinteFlush()) return 80;
+        if (hasCarre()) return 60;
+        if (hasFull()) return 50;
+        if (hasCouleur()) return 45;
+        if (hasSuite()) return 40;
+        if (hasBrelan()) return 30;
 
+        return getHigherValue();
+    }
 
     public boolean hasBrelan() {
         return hasNumberOfValue(3);
