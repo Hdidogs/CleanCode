@@ -1,9 +1,6 @@
 package card;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Hand {
     public static final int INT_MAX_CARD_BY_HAND = 5;
@@ -29,6 +26,10 @@ public class Hand {
 
     public boolean hasCarre() {
         return hasNumberOfvalue(4);
+    }
+
+    public boolean hasSuite() {
+        return false;
     }
 
     public boolean hasCouleur() {

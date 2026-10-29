@@ -52,4 +52,16 @@ public class CardHandResultTest {
         Hand hand = new Hand().addCard(Cards.SEPT_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE).addCard(Cards.ROI_PIQUE);
         assertTrue(hand.hasCarre());
     }
+
+    @Test
+    public void shouldHaveSuiteFalse() {
+        Hand hand = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DIX_COUEUR).addCard(Cards.ROI_PIQUE).addCard(Cards.QUATTRE_TREFLE);
+        assertFalse(hand.hasSuite());
+    }
+
+    @Test
+    public void shouldHaveSuiteTrue() {
+        Hand hand = new Hand().addCard(Cards.DEUX_CARRE).addCard(Cards.TROIS_PIQUE).addCard(Cards.CINQ_CARRE).addCard(Cards.QUATTRE_TREFLE).addCard(Cards.SIX_TREFLE);
+        assertTrue(hand.hasSuite());
+    }
 }
