@@ -2,6 +2,8 @@ import card.Cards;
 import card.Hand;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CardHandResultTest {
@@ -87,5 +89,16 @@ public class CardHandResultTest {
     public void shouldHaveFullTrue() {
         Hand hand = new Hand().addCard(Cards.DEUX_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.QUATTRE_CARRE).addCard(Cards.QUATTRE_CARRE);
         assertTrue(hand.hasFull());
+    }
+
+    @Test
+    public void shouldPlayerGetScore56() {
+        Hand hand = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DIX_COUEUR).addCard(Cards.ROI_PIQUE).addCard(Cards.QUATTRE_TREFLE);
+        Hand hand1 = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DIX_COUEUR).addCard(Cards.ROI_PIQUE).addCard(Cards.QUATTRE_TREFLE);
+        Hand hand2 = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DIX_COUEUR).addCard(Cards.ROI_PIQUE).addCard(Cards.QUATTRE_TREFLE);
+        Hand hand3 = new Hand().addCard(Cards.AS_CARRE).addCard(Cards.DEUX_CARRE).addCard(Cards.DIX_COUEUR).addCard(Cards.ROI_PIQUE).addCard(Cards.QUATTRE_TREFLE);
+
+        Player player = new Player(List.of(hand, hand1, hand2, hand3));
+        assertEquals(56, player.getFinalScore());
     }
 }
