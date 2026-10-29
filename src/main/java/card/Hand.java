@@ -14,4 +14,10 @@ public class Hand {
 
         return this;
     }
+
+    public int getHigherValue() {
+        int res = 0;
+
+        return res;
+    }
 }
