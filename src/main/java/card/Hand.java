@@ -38,6 +38,21 @@ public class Hand {
         return false;
     }
 
+    public boolean hasCarre() {
+        Map<Integer, Integer> possibilities = new HashMap<>();
+
+        for (Card card : getCards()) {
+            if (possibilities.containsKey(card.getValue())) possibilities.put(card.getValue(), possibilities.get(card.getValue()) + 1);
+            else possibilities.put(card.getValue(), 1);
+        }
+
+        for (Integer numberOf : possibilities.values()) {
+            if (numberOf >= 4) return true;
+        }
+
+        return false;
+    }
+
     public boolean hasCouleur() {
         Map<CardType, Integer> possibilities = new HashMap<>();
 
