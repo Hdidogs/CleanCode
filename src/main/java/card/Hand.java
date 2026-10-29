@@ -24,6 +24,10 @@ public class Hand {
     public int getHigherValue() {
         int res = 0;
 
+        for (Card card : getCards()) {
+            if (card.getValue() > res) res = card.getValue();
+        }
+
         return res;
     }
 }
