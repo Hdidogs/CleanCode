@@ -50,9 +50,7 @@ public class Hand {
     }
 
     public boolean hasQuinteFlush() {
-        if (!hasSuite()) return false;
-
-        return hasCouleur();
+        return hasCouleur() && hasSuite();
     }
 
     public boolean hasCouleur() {
